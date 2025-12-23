@@ -18,6 +18,15 @@ The pipeline is orchestrated as a Directed Acyclic Graph (DAG) in Airflow with t
 2.  **Transform:** Executes data cleaning tasks including deduplication, handling null values, and noise removal. It also calculates the **AQI** and categorizes it into health risk levels (Good, Satisfactory, Poor, etc.) based on CPCB standards.
 3.  **Analyze & Visualize:** Performs city-wise statistical analysis, identifies the most polluted regions, and generates a final summary report in CSV format.
 
+## 🏗️ Pipeline Architecture
+
+![Airflow DAG Graph](Screenshot%202025-12-23%20110914.png)
+
+The pipeline is orchestrated as a Directed Acyclic Graph (DAG) in Airflow with three primary stages:
+* **merge_raw_data**: Ingests and unifies CSV and Excel datasets.
+* **transform_data**: Cleans data and calculates the AQI.
+* **analyze_and_visualize**: Generates final reports and summaries.
+  
 ## 📂 Project Structure
 ```text
 ├── dags/
@@ -31,12 +40,5 @@ The pipeline is orchestrated as a Directed Acyclic Graph (DAG) in Airflow with t
     ├── processed/               # Cleaned parquet/csv output
     └── analysis/                # Final summary reports
 
-## 🏗️ Pipeline Architecture
 
-![Airflow DAG Graph](Screenshot%202025-12-23%20110914.png)
-
-The pipeline is orchestrated as a Directed Acyclic Graph (DAG) in Airflow with three primary stages:
-* **merge_raw_data**: Ingests and unifies CSV and Excel datasets.
-* **transform_data**: Cleans data and calculates the AQI.
-* **analyze_and_visualize**: Generates final reports and summaries.
 
