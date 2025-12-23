@@ -1,0 +1,27 @@
+[2025-12-21T07:34:40.062+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: air_pollution_pipeline.merge_raw_data manual__2025-12-21T07:34:38.898466+00:00 [queued]>
+[2025-12-21T07:34:40.071+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: air_pollution_pipeline.merge_raw_data manual__2025-12-21T07:34:38.898466+00:00 [queued]>
+[2025-12-21T07:34:40.072+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 2
+[2025-12-21T07:34:40.087+0000] {taskinstance.py:2217} INFO - Executing <Task(BashOperator): merge_raw_data> on 2025-12-21 07:34:38.898466+00:00
+[2025-12-21T07:34:40.094+0000] {standard_task_runner.py:60} INFO - Started process 100 to run task
+[2025-12-21T07:34:40.099+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'air_pollution_pipeline', 'merge_raw_data', 'manual__2025-12-21T07:34:38.898466+00:00', '--job-id', '12', '--raw', '--subdir', 'DAGS_FOLDER/air_pollution_dag.py', '--cfg-path', '/tmp/tmpxa1r93ra']
+[2025-12-21T07:34:40.101+0000] {standard_task_runner.py:88} INFO - Job 12: Subtask merge_raw_data
+[2025-12-21T07:34:40.168+0000] {task_command.py:423} INFO - Running <TaskInstance: air_pollution_pipeline.merge_raw_data manual__2025-12-21T07:34:38.898466+00:00 [running]> on host c6e9502c0e09
+[2025-12-21T07:34:40.263+0000] {taskinstance.py:2513} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='air_pollution_pipeline' AIRFLOW_CTX_TASK_ID='merge_raw_data' AIRFLOW_CTX_EXECUTION_DATE='2025-12-21T07:34:38.898466+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-12-21T07:34:38.898466+00:00'
+[2025-12-21T07:34:40.266+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-12-21T07:34:40.268+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'python /opt/***/spark/merge.py']
+[2025-12-21T07:34:40.282+0000] {subprocess.py:86} INFO - Output:
+[2025-12-21T07:34:40.310+0000] {subprocess.py:93} INFO - python: can't open file '/opt/***/spark/merge.py': [Errno 2] No such file or directory
+[2025-12-21T07:34:40.313+0000] {subprocess.py:97} INFO - Command exited with return code 2
+[2025-12-21T07:34:40.325+0000] {taskinstance.py:2731} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 444, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 414, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/bash.py", line 212, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 2.
+[2025-12-21T07:34:40.330+0000] {taskinstance.py:1149} INFO - Marking task as UP_FOR_RETRY. dag_id=air_pollution_pipeline, task_id=merge_raw_data, execution_date=20251221T073438, start_date=20251221T073440, end_date=20251221T073440
+[2025-12-21T07:34:40.342+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 12 for task merge_raw_data (Bash command failed. The command returned a non-zero exit code 2.; 100)
+[2025-12-21T07:34:40.392+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2025-12-21T07:34:40.419+0000] {taskinstance.py:3312} INFO - 0 downstream tasks scheduled from follow-on schedule check

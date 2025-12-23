@@ -1,0 +1,53 @@
+[2025-12-21T09:34:42.215+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: air_pollution_pipeline.merge_raw_data manual__2025-12-21T08:56:38.390544+00:00 [queued]>
+[2025-12-21T09:34:42.231+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: air_pollution_pipeline.merge_raw_data manual__2025-12-21T08:56:38.390544+00:00 [queued]>
+[2025-12-21T09:34:42.235+0000] {taskinstance.py:2193} INFO - Starting attempt 5 of 6
+[2025-12-21T09:34:42.268+0000] {taskinstance.py:2217} INFO - Executing <Task(BashOperator): merge_raw_data> on 2025-12-21 08:56:38.390544+00:00
+[2025-12-21T09:34:42.285+0000] {standard_task_runner.py:60} INFO - Started process 75 to run task
+[2025-12-21T09:34:42.294+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'air_pollution_pipeline', 'merge_raw_data', 'manual__2025-12-21T08:56:38.390544+00:00', '--job-id', '46', '--raw', '--subdir', 'DAGS_FOLDER/air_pollution_dag.py', '--cfg-path', '/tmp/tmp248fuus9']
+[2025-12-21T09:34:42.299+0000] {standard_task_runner.py:88} INFO - Job 46: Subtask merge_raw_data
+[2025-12-21T09:34:42.474+0000] {task_command.py:423} INFO - Running <TaskInstance: air_pollution_pipeline.merge_raw_data manual__2025-12-21T08:56:38.390544+00:00 [running]> on host 6c2cfb322dbf
+[2025-12-21T09:34:42.740+0000] {taskinstance.py:2513} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='air_pollution_pipeline' AIRFLOW_CTX_TASK_ID='merge_raw_data' AIRFLOW_CTX_EXECUTION_DATE='2025-12-21T08:56:38.390544+00:00' AIRFLOW_CTX_TRY_NUMBER='5' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-12-21T08:56:38.390544+00:00'
+[2025-12-21T09:34:42.741+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-12-21T09:34:42.746+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'python /opt/***/spark/merge.py']
+[2025-12-21T09:34:42.812+0000] {subprocess.py:86} INFO - Output:
+[2025-12-21T09:34:51.015+0000] {subprocess.py:93} INFO - Setting default log level to "WARN".
+[2025-12-21T09:34:51.017+0000] {subprocess.py:93} INFO - To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+[2025-12-21T09:34:51.542+0000] {subprocess.py:93} INFO - 25/12/21 09:34:51 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2025-12-21T09:35:25.600+0000] {subprocess.py:93} INFO - [Stage 0:>                                                          (0 + 0) / 1][Stage 0:>                                                          (0 + 1) / 1]                                                                                [Stage 1:>                                                          (0 + 1) / 1][Stage 3:>                                                          (0 + 1) / 1]                                                                                Traceback (most recent call last):
+[2025-12-21T09:35:25.601+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/pandas/compat/_optional.py", line 142, in import_optional_dependency
+[2025-12-21T09:35:25.602+0000] {subprocess.py:93} INFO -     module = importlib.import_module(name)
+[2025-12-21T09:35:25.602+0000] {subprocess.py:93} INFO -   File "/usr/local/lib/python3.8/importlib/__init__.py", line 127, in import_module
+[2025-12-21T09:35:25.603+0000] {subprocess.py:93} INFO -     return _bootstrap._gcd_import(name[level:], package, level)
+[2025-12-21T09:35:25.603+0000] {subprocess.py:93} INFO -   File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+[2025-12-21T09:35:25.604+0000] {subprocess.py:93} INFO -   File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+[2025-12-21T09:35:25.604+0000] {subprocess.py:93} INFO -   File "<frozen importlib._bootstrap>", line 973, in _find_and_load_unlocked
+[2025-12-21T09:35:25.604+0000] {subprocess.py:93} INFO - ModuleNotFoundError: No module named 'openpyxl'
+[2025-12-21T09:35:25.605+0000] {subprocess.py:93} INFO - 
+[2025-12-21T09:35:25.605+0000] {subprocess.py:93} INFO - During handling of the above exception, another exception occurred:
+[2025-12-21T09:35:25.605+0000] {subprocess.py:93} INFO - 
+[2025-12-21T09:35:25.612+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2025-12-21T09:35:25.613+0000] {subprocess.py:93} INFO -   File "/opt/***/spark/merge.py", line 39, in <module>
+[2025-12-21T09:35:25.614+0000] {subprocess.py:93} INFO -     excel_pd = pd.read_excel("/opt/***/data/raw/Dataset_23-4.xlsx", engine="openpyxl")
+[2025-12-21T09:35:25.616+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/pandas/io/excel/_base.py", line 478, in read_excel
+[2025-12-21T09:35:25.620+0000] {subprocess.py:93} INFO -     io = ExcelFile(io, storage_options=storage_options, engine=engine)
+[2025-12-21T09:35:25.626+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/pandas/io/excel/_base.py", line 1513, in __init__
+[2025-12-21T09:35:25.629+0000] {subprocess.py:93} INFO -     self._reader = self._engines[engine](self._io, storage_options=storage_options)
+[2025-12-21T09:35:25.629+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/pandas/io/excel/_openpyxl.py", line 548, in __init__
+[2025-12-21T09:35:25.630+0000] {subprocess.py:93} INFO -     import_optional_dependency("openpyxl")
+[2025-12-21T09:35:25.630+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.8/site-packages/pandas/compat/_optional.py", line 145, in import_optional_dependency
+[2025-12-21T09:35:25.631+0000] {subprocess.py:93} INFO -     raise ImportError(msg)
+[2025-12-21T09:35:25.631+0000] {subprocess.py:93} INFO - ImportError: Missing optional dependency 'openpyxl'.  Use pip or conda to install openpyxl.
+[2025-12-21T09:35:27.577+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2025-12-21T09:35:27.622+0000] {taskinstance.py:2731} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 444, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 414, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/bash.py", line 212, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2025-12-21T09:35:27.639+0000] {taskinstance.py:1149} INFO - Marking task as UP_FOR_RETRY. dag_id=air_pollution_pipeline, task_id=merge_raw_data, execution_date=20251221T085638, start_date=20251221T093442, end_date=20251221T093527
+[2025-12-21T09:35:27.678+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 46 for task merge_raw_data (Bash command failed. The command returned a non-zero exit code 1.; 75)
+[2025-12-21T09:35:27.732+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2025-12-21T09:35:27.774+0000] {taskinstance.py:3312} INFO - 0 downstream tasks scheduled from follow-on schedule check

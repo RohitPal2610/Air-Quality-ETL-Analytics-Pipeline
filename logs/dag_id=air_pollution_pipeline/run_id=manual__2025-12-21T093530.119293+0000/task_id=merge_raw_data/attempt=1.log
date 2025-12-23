@@ -1,0 +1,38 @@
+[2025-12-21T09:47:44.633+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: air_pollution_pipeline.merge_raw_data manual__2025-12-21T09:35:30.119293+00:00 [queued]>
+[2025-12-21T09:47:44.655+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: air_pollution_pipeline.merge_raw_data manual__2025-12-21T09:35:30.119293+00:00 [queued]>
+[2025-12-21T09:47:44.656+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 2
+[2025-12-21T09:47:44.709+0000] {taskinstance.py:2217} INFO - Executing <Task(BashOperator): merge_raw_data> on 2025-12-21 09:35:30.119293+00:00
+[2025-12-21T09:47:44.757+0000] {standard_task_runner.py:60} INFO - Started process 73 to run task
+[2025-12-21T09:47:44.775+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'air_pollution_pipeline', 'merge_raw_data', 'manual__2025-12-21T09:35:30.119293+00:00', '--job-id', '52', '--raw', '--subdir', 'DAGS_FOLDER/air_pollution_dag.py', '--cfg-path', '/tmp/tmpzyc3bers']
+[2025-12-21T09:47:44.786+0000] {standard_task_runner.py:88} INFO - Job 52: Subtask merge_raw_data
+[2025-12-21T09:47:44.949+0000] {task_command.py:423} INFO - Running <TaskInstance: air_pollution_pipeline.merge_raw_data manual__2025-12-21T09:35:30.119293+00:00 [running]> on host 4e070c5d590e
+[2025-12-21T09:47:45.122+0000] {taskinstance.py:2513} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='air_pollution_pipeline' AIRFLOW_CTX_TASK_ID='merge_raw_data' AIRFLOW_CTX_EXECUTION_DATE='2025-12-21T09:35:30.119293+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-12-21T09:35:30.119293+00:00'
+[2025-12-21T09:47:45.125+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-12-21T09:47:45.137+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'python /opt/***/spark/merge.py']
+[2025-12-21T09:47:45.187+0000] {subprocess.py:86} INFO - Output:
+[2025-12-21T09:47:55.849+0000] {subprocess.py:93} INFO - Setting default log level to "WARN".
+[2025-12-21T09:47:55.851+0000] {subprocess.py:93} INFO - To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+[2025-12-21T09:47:56.608+0000] {subprocess.py:93} INFO - 25/12/21 09:47:56 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2025-12-21T09:48:01.795+0000] {subprocess.py:93} INFO - 25/12/21 09:48:01 WARN Utils: Service 'SparkUI' could not bind on port 4040. Attempting port 4041.
+[2025-12-21T09:48:01.805+0000] {subprocess.py:93} INFO - 25/12/21 09:48:01 WARN Utils: Service 'SparkUI' could not bind on port 4041. Attempting port 4042.
+[2025-12-21T09:48:01.818+0000] {subprocess.py:93} INFO - 25/12/21 09:48:01 WARN Utils: Service 'SparkUI' could not bind on port 4042. Attempting port 4043.
+[2025-12-21T09:49:01.258+0000] {subprocess.py:93} INFO - [Stage 0:>                                                          (0 + 0) / 1][Stage 0:>                                                          (0 + 1) / 1][Stage 0:===========================================================(1 + 0) / 1]                                                                                [Stage 1:>                                                          (0 + 1) / 1][Stage 3:>                                                          (0 + 1) / 1]                                                                                [Stage 5:>                                                          (0 + 1) / 1]                                                                                [Stage 9:>                                                          (0 + 1) / 1][Stage 11:>                                                         (0 + 1) / 1][Stage 14:>                                                         (0 + 1) / 1]                                                                                [Stage 20:>                                                         (0 + 0) / 1][Stage 20:>                                                         (0 + 1) / 1]                                                                                +----------------+-------------------+------------------+-----+-----------------+------------------+
+[2025-12-21T09:49:01.262+0000] {subprocess.py:93} INFO - |            City|               Date|             PM2_5| PM10|              NO2|               SO2|
+[2025-12-21T09:49:01.263+0000] {subprocess.py:93} INFO - +----------------+-------------------+------------------+-----+-----------------+------------------+
+[2025-12-21T09:49:01.264+0000] {subprocess.py:93} INFO - |     Hanumangarh|18-12-2025 14:00:00|              78.0|147.0|             28.0|               4.0|
+[2025-12-21T09:49:01.265+0000] {subprocess.py:93} INFO - |        Jhalawar|18-12-2025 14:00:00|             142.0| 98.0|             27.0|              18.0|
+[2025-12-21T09:49:01.265+0000] {subprocess.py:93} INFO - |          Koppal|18-12-2025 14:00:00|              23.0| 47.0|             33.0|              21.0|
+[2025-12-21T09:49:01.266+0000] {subprocess.py:93} INFO - |           Delhi|18-12-2025 14:00:00|           363.175|297.2|68.07692307692308|19.387096774193548|
+[2025-12-21T09:49:01.266+0000] {subprocess.py:93} INFO - |   Visakhapatnam|18-12-2025 14:00:00|             298.0|258.0|            140.0|              33.0|
+[2025-12-21T09:49:01.267+0000] {subprocess.py:93} INFO - |           Korba|18-12-2025 14:00:00|              70.0| 91.0|             23.5|               8.5|
+[2025-12-21T09:49:01.268+0000] {subprocess.py:93} INFO - |       Bhagalpur|18-12-2025 14:00:00|             164.5|142.5|              8.0|              45.0|
+[2025-12-21T09:49:01.269+0000] {subprocess.py:93} INFO - |Pimpri-Chinchwad|18-12-2025 14:00:00|239.66666666666666|167.0|84.66666666666667|               2.5|
+[2025-12-21T09:49:01.270+0000] {subprocess.py:93} INFO - |       Firozabad|18-12-2025 14:00:00|              63.0| 86.0|             17.0|              21.0|
+[2025-12-21T09:49:01.271+0000] {subprocess.py:93} INFO - |        Srinagar|18-12-2025 14:00:00|             200.5|181.0|             17.0|               3.5|
+[2025-12-21T09:49:01.272+0000] {subprocess.py:93} INFO - +----------------+-------------------+------------------+-----+-----------------+------------------+
+[2025-12-21T09:49:01.273+0000] {subprocess.py:93} INFO - only showing top 10 rows
+[2025-12-21T09:49:01.274+0000] {subprocess.py:93} INFO - 
+[2025-12-21T09:49:02.019+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2025-12-21T09:49:02.069+0000] {taskinstance.py:1149} INFO - Marking task as SUCCESS. dag_id=air_pollution_pipeline, task_id=merge_raw_data, execution_date=20251221T093530, start_date=20251221T094744, end_date=20251221T094902
+[2025-12-21T09:49:02.125+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2025-12-21T09:49:02.170+0000] {taskinstance.py:3312} INFO - 0 downstream tasks scheduled from follow-on schedule check

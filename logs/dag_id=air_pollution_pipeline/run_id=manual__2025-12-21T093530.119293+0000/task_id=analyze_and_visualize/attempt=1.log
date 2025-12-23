@@ -1,0 +1,82 @@
+[2025-12-21T09:49:26.692+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: air_pollution_pipeline.analyze_and_visualize manual__2025-12-21T09:35:30.119293+00:00 [queued]>
+[2025-12-21T09:49:26.705+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: air_pollution_pipeline.analyze_and_visualize manual__2025-12-21T09:35:30.119293+00:00 [queued]>
+[2025-12-21T09:49:26.706+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 2
+[2025-12-21T09:49:26.725+0000] {taskinstance.py:2217} INFO - Executing <Task(BashOperator): analyze_and_visualize> on 2025-12-21 09:35:30.119293+00:00
+[2025-12-21T09:49:26.733+0000] {standard_task_runner.py:60} INFO - Started process 1434 to run task
+[2025-12-21T09:49:26.738+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'air_pollution_pipeline', 'analyze_and_visualize', 'manual__2025-12-21T09:35:30.119293+00:00', '--job-id', '56', '--raw', '--subdir', 'DAGS_FOLDER/air_pollution_dag.py', '--cfg-path', '/tmp/tmpuytoo3l6']
+[2025-12-21T09:49:26.740+0000] {standard_task_runner.py:88} INFO - Job 56: Subtask analyze_and_visualize
+[2025-12-21T09:49:26.808+0000] {task_command.py:423} INFO - Running <TaskInstance: air_pollution_pipeline.analyze_and_visualize manual__2025-12-21T09:35:30.119293+00:00 [running]> on host 4e070c5d590e
+[2025-12-21T09:49:26.891+0000] {taskinstance.py:2513} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='air_pollution_pipeline' AIRFLOW_CTX_TASK_ID='analyze_and_visualize' AIRFLOW_CTX_EXECUTION_DATE='2025-12-21T09:35:30.119293+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-12-21T09:35:30.119293+00:00'
+[2025-12-21T09:49:26.893+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-12-21T09:49:26.894+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'python /opt/***/spark/analysis_viz.py']
+[2025-12-21T09:49:26.912+0000] {subprocess.py:86} INFO - Output:
+[2025-12-21T09:49:29.174+0000] {subprocess.py:93} INFO - Setting default log level to "WARN".
+[2025-12-21T09:49:29.175+0000] {subprocess.py:93} INFO - To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+[2025-12-21T09:49:29.375+0000] {subprocess.py:93} INFO - 25/12/21 09:49:29 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2025-12-21T09:49:39.066+0000] {subprocess.py:93} INFO - [Stage 0:>                                                          (0 + 1) / 1]                                                                                25/12/21 09:49:39 WARN SparkStringUtils: Truncated the string representation of a plan since it was too large. This behavior can be adjusted by setting 'spark.sql.debug.maxToStringFields'.
+[2025-12-21T09:49:41.846+0000] {subprocess.py:93} INFO - 
+[2025-12-21T09:49:41.847+0000] {subprocess.py:93} INFO - ==============================
+[2025-12-21T09:49:41.847+0000] {subprocess.py:93} INFO - AQI CATEGORY DISTRIBUTION
+[2025-12-21T09:49:41.848+0000] {subprocess.py:93} INFO - ==============================
+[2025-12-21T09:49:41.848+0000] {subprocess.py:93} INFO - +------------+-----+
+[2025-12-21T09:49:41.849+0000] {subprocess.py:93} INFO - |AQI_Category|count|
+[2025-12-21T09:49:41.849+0000] {subprocess.py:93} INFO - +------------+-----+
+[2025-12-21T09:49:41.849+0000] {subprocess.py:93} INFO - |    Moderate|  112|
+[2025-12-21T09:49:41.850+0000] {subprocess.py:93} INFO - |Satisfactory|   55|
+[2025-12-21T09:49:41.850+0000] {subprocess.py:93} INFO - |        Poor|   44|
+[2025-12-21T09:49:41.850+0000] {subprocess.py:93} INFO - |      Severe|   16|
+[2025-12-21T09:49:41.851+0000] {subprocess.py:93} INFO - |        Good|   15|
+[2025-12-21T09:49:41.851+0000] {subprocess.py:93} INFO - |   Very Poor|   10|
+[2025-12-21T09:49:41.852+0000] {subprocess.py:93} INFO - +------------+-----+
+[2025-12-21T09:49:41.852+0000] {subprocess.py:93} INFO - 
+[2025-12-21T09:49:41.853+0000] {subprocess.py:93} INFO - 
+[2025-12-21T09:49:41.853+0000] {subprocess.py:93} INFO - ==============================
+[2025-12-21T09:49:41.854+0000] {subprocess.py:93} INFO - TOP 10 MOST POLLUTED CITIES
+[2025-12-21T09:49:41.855+0000] {subprocess.py:93} INFO - ==============================
+[2025-12-21T09:49:41.855+0000] {subprocess.py:93} INFO - +-------------+------+------------+
+[2025-12-21T09:49:41.856+0000] {subprocess.py:93} INFO - |         City|   AQI|AQI_Category|
+[2025-12-21T09:49:41.856+0000] {subprocess.py:93} INFO - +-------------+------+------------+
+[2025-12-21T09:49:41.856+0000] {subprocess.py:93} INFO - |        Noida| 384.0|   Very Poor|
+[2025-12-21T09:49:41.857+0000] {subprocess.py:93} INFO - |        Delhi|363.18|   Very Poor|
+[2025-12-21T09:49:41.857+0000] {subprocess.py:93} INFO - |    Panchkula| 349.0|   Very Poor|
+[2025-12-21T09:49:41.858+0000] {subprocess.py:93} INFO - |        Baddi| 337.0|   Very Poor|
+[2025-12-21T09:49:41.858+0000] {subprocess.py:93} INFO - |    Ghaziabad|333.25|   Very Poor|
+[2025-12-21T09:49:41.858+0000] {subprocess.py:93} INFO - |Greater Noida| 331.0|   Very Poor|
+[2025-12-21T09:49:41.859+0000] {subprocess.py:93} INFO - |        Angul| 314.0|   Very Poor|
+[2025-12-21T09:49:41.859+0000] {subprocess.py:93} INFO - |   Byasanagar| 311.0|   Very Poor|
+[2025-12-21T09:49:41.859+0000] {subprocess.py:93} INFO - |      Pampore| 308.0|   Very Poor|
+[2025-12-21T09:49:41.860+0000] {subprocess.py:93} INFO - |  Bhubaneswar| 301.0|   Very Poor|
+[2025-12-21T09:49:41.860+0000] {subprocess.py:93} INFO - +-------------+------+------------+
+[2025-12-21T09:49:41.861+0000] {subprocess.py:93} INFO - 
+[2025-12-21T09:49:41.862+0000] {subprocess.py:93} INFO - 
+[2025-12-21T09:49:41.862+0000] {subprocess.py:93} INFO - ==============================
+[2025-12-21T09:49:41.863+0000] {subprocess.py:93} INFO - POLLUTANT SUMMARY STATISTICS
+[2025-12-21T09:49:41.863+0000] {subprocess.py:93} INFO - ==============================
+[2025-12-21T09:49:41.863+0000] {subprocess.py:93} INFO - +-------+------------------+------------------+------------------+------------------+-----------------+
+[2025-12-21T09:49:41.864+0000] {subprocess.py:93} INFO - |summary|             PM2_5|              PM10|               NO2|               SO2|              AQI|
+[2025-12-21T09:49:41.865+0000] {subprocess.py:93} INFO - +-------+------------------+------------------+------------------+------------------+-----------------+
+[2025-12-21T09:49:41.865+0000] {subprocess.py:93} INFO - |  count|               230|               231|               228|               231|              236|
+[2025-12-21T09:49:41.866+0000] {subprocess.py:93} INFO - |   mean|137.98200000000006|125.16445887445886|31.026140350877196|14.924458874458875|147.8527118644068|
+[2025-12-21T09:49:41.867+0000] {subprocess.py:93} INFO - | stddev| 79.61626636149788|53.946822983675304| 21.43583068182482|11.702636512185826|74.41720245716488|
+[2025-12-21T09:49:41.867+0000] {subprocess.py:93} INFO - |    min|              20.0|              10.0|               1.0|               1.0|             12.0|
+[2025-12-21T09:49:41.868+0000] {subprocess.py:93} INFO - |    max|             384.0|            322.25|             140.0|              74.0|            384.0|
+[2025-12-21T09:49:41.869+0000] {subprocess.py:93} INFO - +-------+------------------+------------------+------------------+------------------+-----------------+
+[2025-12-21T09:49:41.870+0000] {subprocess.py:93} INFO - 
+[2025-12-21T09:49:41.871+0000] {subprocess.py:93} INFO - 
+[2025-12-21T09:49:41.871+0000] {subprocess.py:93} INFO - ==============================
+[2025-12-21T09:49:41.872+0000] {subprocess.py:93} INFO - CITY-WISE AVERAGE AQI (Top 5)
+[2025-12-21T09:49:41.873+0000] {subprocess.py:93} INFO - ==============================
+[2025-12-21T09:49:41.873+0000] {subprocess.py:93} INFO - +---------+-------+
+[2025-12-21T09:49:41.874+0000] {subprocess.py:93} INFO - |     City|Avg_AQI|
+[2025-12-21T09:49:41.875+0000] {subprocess.py:93} INFO - +---------+-------+
+[2025-12-21T09:49:41.876+0000] {subprocess.py:93} INFO - |    Noida|  384.0|
+[2025-12-21T09:49:41.876+0000] {subprocess.py:93} INFO - |    Delhi| 363.18|
+[2025-12-21T09:49:41.877+0000] {subprocess.py:93} INFO - |Panchkula|  349.0|
+[2025-12-21T09:49:41.879+0000] {subprocess.py:93} INFO - |    Baddi|  337.0|
+[2025-12-21T09:49:41.880+0000] {subprocess.py:93} INFO - |Ghaziabad| 333.25|
+[2025-12-21T09:49:41.880+0000] {subprocess.py:93} INFO - +---------+-------+
+[2025-12-21T09:49:41.881+0000] {subprocess.py:93} INFO - 
+[2025-12-21T09:49:42.366+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2025-12-21T09:49:42.396+0000] {taskinstance.py:1149} INFO - Marking task as SUCCESS. dag_id=air_pollution_pipeline, task_id=analyze_and_visualize, execution_date=20251221T093530, start_date=20251221T094926, end_date=20251221T094942
+[2025-12-21T09:49:42.461+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2025-12-21T09:49:42.479+0000] {taskinstance.py:3312} INFO - 0 downstream tasks scheduled from follow-on schedule check
