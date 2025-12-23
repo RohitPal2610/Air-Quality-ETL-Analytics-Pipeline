@@ -30,6 +30,7 @@ The pipeline is orchestrated as a Directed Acyclic Graph (DAG) in Airflow with t
     ├── raw/                     # Original CSV and Excel datasets
     ├── processed/               # Cleaned parquet/csv output
     └── analysis/                # Final summary reports
+
 ## 🏗️ Pipeline Architecture
 
 ![Airflow DAG Graph](Screenshot%202025-12-23%20110914.png)
